@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_num2words_johannah_num2words_johannah,num2words_johannah.num2words_johannah,model_num2words_johannah_num2words_johannah,base.group_user,1,1,1,1
