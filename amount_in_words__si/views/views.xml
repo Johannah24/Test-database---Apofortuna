@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="amount_in_words__si.list">
+      <field name="name">amount_in_words_SI list</field>
+      <field name="model">amount_in_words__si.amount_in_words__si</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="amount_in_words__si.action_window">
+      <field name="name">amount_in_words_SI window</field>
+      <field name="res_model">amount_in_words__si.amount_in_words__si</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="amount_in_words__si.action_server">
+      <field name="name">amount_in_words_SI server</field>
+      <field name="model_id" ref="model_amount_in_words__si_amount_in_words__si"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="amount_in_words_SI" id="amount_in_words__si.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="amount_in_words__si.menu_1" parent="amount_in_words__si.menu_root"/>
+    <menuitem name="Menu 2" id="amount_in_words__si.menu_2" parent="amount_in_words__si.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="amount_in_words__si.menu_1_list" parent="amount_in_words__si.menu_1"
+              action="amount_in_words__si.action_window"/>
+    <menuitem name="Server to list" id="amount_in_words__si" parent="amount_in_words__si.menu_2"
+              action="amount_in_words__si.action_server"/>
+-->
+  </data>
+</odoo>
