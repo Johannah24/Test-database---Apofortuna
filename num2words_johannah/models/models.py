@@ -32,5 +32,33 @@ class num2words_johannah(models.Model):
         for payment in self:
             payment.check_amount_in_words = payment.amount_to_text(payment.amount)
 
+class Num2WordsAccountMove(models.Model):
+    _inherit = "account.move"
+
+    check_amount_in_words = fields.Char(
+        string="Amount in Words",
+        store=False,
+        compute="_compute_check_amount_in_words"
+    )
+    
+    def round_amount_to_two_decimals(self, amount):
+        """Round off the amount to two decimal places."""
+        return round(amount, 2)
+
+    def amount_to_text(self, amount):
+        """Return the amount in words."""
+        rounded_amount = self.round_amount_to_two_decimals(amount)
+        # Get the amount in words with currency as "MXN"
+        amount_in_words = num2words(rounded_amount, to='currency', lang='en', currency='MXN')
+        # Replace "Centavos" with "Cents"
+        amount_in_words = amount_in_words.replace("cents", "centavos")
+        return amount_in_words
+        
+
+    @api.depends('amount_total')
+    def _compute_check_amount_in_words(self):
+        for move in self:
+            move.check_amount_in_words = self.amount_to_text(move.amount_total)
+
 
 
