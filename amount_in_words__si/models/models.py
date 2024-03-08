@@ -3,11 +3,11 @@
 from odoo import models, fields, api
 from num2words import num2words
 
-class num2words_johannah(models.Model):
-    _inherit = "account.payment"
 
+class amount_in_words__si(models.Model):
+    _inherit = 'account.move'
 
-    check_amount_in_words = fields.Char(
+      check_amount_in_words = fields.Char(
         string="Amount in Words",
         store=False,
         compute="_compute_check_amount_in_words"
@@ -31,6 +31,4 @@ class num2words_johannah(models.Model):
     def _compute_check_amount_in_words(self):
         for payment in self:
             payment.check_amount_in_words = payment.amount_to_text(payment.amount)
-
-
-
+    
